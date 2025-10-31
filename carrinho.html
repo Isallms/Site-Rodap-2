@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>SearchTec - Carrinho</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+}
+header {
+  width: 100%;
+  background: #ffe4ec;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  background: #ffd8e5;
+  border-radius: 25px;
+  padding: 10px 20px;
+  box-shadow: 2px 3px 5px #ccc;
+}
+.logo span {
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 10px;
+}
+.search-bar {
+  background: #ffeaf0;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  padding: 6px 15px;
+  width: 250px;
+}
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 14px;
+}
+.main {
+  width: 90%;
+  max-width: 1100px;
+  background: #fff;
+  margin-top: 30px;
+  padding: 20px;
+}
+.produto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffd8e5;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.produto img {
+  width: 120px;
+  border-radius: 5px;
+}
+.info {
+  flex: 1;
+  margin-left: 15px;
+}
+.info h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.info p {
+  font-size: 13px;
+  color: #333;
+  line-height: 1.4;
+}
+.quantidade {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+.quantidade span {
+  font-size: 13px;
+  font-weight: 500;
+}
+.quantidade button {
+  width: 25px;
+  height: 25px;
+  border: none;
+  background: #ffeaf0;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.preco {
+  background: #ffccda;
+  border-radius: 10px;
+  padding: 8px 15px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
+}
+.comprar {
+  background: #ffeaf0;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 15px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.total {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+.total span {
+  background: #d9d9d9;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+}
+.total button {
+  background: #d9d9d9;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  background: #ffe4ec;
+  padding: 12px;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+footer button {
+  background: #ffeaf0;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 25px;
+  font-weight: 500;
+  font-size: 14px;
+  box-shadow: inset 1px 2px 3px #ddd;
+  cursor: pointer;
+}
+footer button:hover {
+  background: #ffd8e5;
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><span>SearchTec</span></div>
+  <div class="search-bar"><input type="text" placeholder="Buscar"></div>
+</header>
+
+<div class="main">
+  <div class="produto">
+    <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+    <div class="info">
+      <h3>Descrição top</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div class="quantidade">
+        <span>Quantidade: 1</span>
+        <button>-</button>
+        <button>+</button>
+      </div>
+    </div>
+    <div class="preco">R$ 449,90</div>
+    <a href="finalizar.html"><button class="comprar">COMPRAR</button></a>
+  </div>
+
+  <div class="produto">
+    <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+    <div class="info">
+      <h3>Descrição top</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div class="quantidade">
+        <span>Quantidade: 2</span>
+        <button>-</button>
+        <button>+</button>
+      </div>
+    </div>
+    <div class="preco">R$ 770</div>
+    <a href="finalizar.html"><button class="comprar">COMPRAR</button></a>
+  </div>
+
+  <div class="produto">
+    <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+    <div class="info">
+      <h3>Descrição top</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div class="quantidade">
+        <span>Quantidade: 1</span>
+        <button>-</button>
+        <button>+</button>
+      </div>
+    </div>
+    <div class="preco">R$ 150</div>
+    <a href="finalizar.html"><button class="comprar">COMPRAR</button></a>
+  </div>
+
+  <div class="total">
+    <span>Preço Final: R$ 6590,02</span>
+    <a href="finalizar.html">
+    <button>FINALIZAR COMPRA</button>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <button onclick="location.href='index.html'">Início</button>
+  <button onclick="location.href='alerta.html'">Alerta</button>
+  <button onclick="location.href='ofertas.html'">Ofertas</button>
+  <button onclick="location.href='carrinho.html'">Carrinho</button>
+  <button onclick="location.href='perfil.html'">Perfil</button>
+</footer>
+</body>
+</html>

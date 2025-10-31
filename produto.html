@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Produto - SearchTec</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  background: #ffe4ec;
+  width: 100%;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 2px 5px #ccc;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  background: #ffd8e5;
+  border-radius: 25px;
+  padding: 8px 20px;
+  font-weight: 600;
+  font-size: 20px;
+  box-shadow: 2px 3px 5px #ccc;
+}
+
+.search-bar {
+  background: #ffeaf0;
+  border-radius: 8px;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  max-width: 300px;
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 14px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  padding: 20px;
+  width: 100%;
+}
+
+.card {
+  background: #ffe4ec;
+  border-radius: 12px;
+  box-shadow: 2px 3px 5px #ddd;
+  padding: 25px;
+  max-width: 350px;
+  text-align: center;
+}
+
+.card img {
+  width: 150px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.card h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.card button {
+  background: #ffd8e5;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.card button:hover {
+  background: #f5c6d6;
+}
+
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+}
+
+.modal-content {
+  background: #ffeaf0;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 2px 3px 6px #aaa;
+}
+
+.modal-content img {
+  margin: 10px 0;
+}
+
+.modal-content button {
+  background: #ffd8e5;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 18px;
+  margin: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.modal-content button:hover {
+  background: #f5c6d6;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background: #ffe4ec;
+  padding: 15px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  box-shadow: 0 -2px 5px #ddd;
+}
+
+footer button {
+  background: #ffeaf0;
+  border-radius: 25px;
+  padding: 8px 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+  box-shadow: inset 1px 2px 3px #ddd;
+}
+
+footer button:hover {
+  background: #ffd8e5;
+}
+
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">SearchTec</div>
+  <div class="search-bar"><input type="text" placeholder="Buscar..."></div>
+</header>
+
+<div class="container">
+  <div class="card">
+    <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png" width="150">
+    <h2>Insira o Nome do Produto aqui</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam...</p>
+    <button onclick="document.getElementById('modal').style.display='flex'">ADICIONAR AO CARRINHO</button>
+  </div>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <h2>Item adicionado ao Carrinho!</h2>
+    <p>R$1.500 - R$2.400</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png" width="100">
+    <p>Insira o Nome do Produto Aqui</p>
+    <button onclick="this.closest('.modal').style.display='none'">Continuar comprando</button>
+    <button onclick="window.location.href='carrinho.html'">Ir ao Carrinho</button>
+  </div>
+</div>
+
+<footer>
+  <button onclick="location.href='index.html'">Início</button>
+  <button onclick="location.href='alerta.html'">Alerta</button>
+  <button onclick="location.href='ofertas.html'">Ofertas</button>
+  <button onclick="location.href='carrinho.html'">Carrinho</button>
+  <button onclick="location.href='perfil.html'">Perfil</button>
+</footer>
+</body>
+</html>

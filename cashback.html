@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cashback - SearchTec</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding-bottom: 80px; 
+    }
+
+    header {
+      width: 100%;
+      background: #ffe4ec;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 20px;
+      background: #ffd8e5;
+      border-radius: 25px;
+      padding: 10px 20px;
+      box-shadow: 2px 3px 5px #ccc;
+    }
+
+    .search-bar {
+      background: #ffeaf0;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      padding: 6px 15px;
+      width: 220px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: none;
+      font-size: 14px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .container h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+    }
+
+    .product {
+      background: #ffe4ec;
+      border-radius: 10px;
+      padding: 15px;
+      width: 180px;
+      text-align: center;
+      box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+      transition: 0.2s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    }
+
+    .product img {
+      width: 80px;     
+      height: 80px;
+      object-fit: contain; 
+      margin-bottom: 10px;
+    }
+
+    .product h4 {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .product p {
+      background: #fbdde8;
+      border-radius: 6px;
+      padding: 3px 0;
+      font-weight: 600;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+
+    .product .cashback {
+      font-size: 12px;
+      font-weight: 500;
+      color: #ff4d7a;
+      margin-bottom: 10px;
+    }
+
+    .product button {
+      background: #ffd8e5;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 15px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .product button:hover {
+      background: #ffbfd3;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      background: #ffe4ec;
+      padding: 12px;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    }
+
+    footer button {
+      background: #ffeaf0;
+      border: none;
+      border-radius: 25px;
+      padding: 8px 25px;
+      font-weight: 500;
+      font-size: 14px;
+      box-shadow: inset 1px 2px 3px #ddd;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    footer button:hover {
+      background: #ffd8e5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">SearchTec</div>
+  <div class="search-bar">
+    <input type="text" placeholder="Buscar cashback...">
+  </div>
+</header>
+
+<div class="container">
+  <h2>Cashback</h2>
+
+  <div class="product-grid">
+
+    <div class="product">
+      <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+      <h4>Notebook X</h4>
+      <p>R$ 2.400,00</p>
+      <p class="cashback">Cashback: R$ 120,00</p>
+      <button onclick="window.location.href='produto.html'">Ver produto</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+      <h4>Mouse Gamer</h4>
+      <p>R$ 180,00</p>
+      <p class="cashback">Cashback: R$ 9,00</p>
+      <button onclick="window.location.href='produto.html'">Ver produto</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+      <h4>Teclado Mecânico</h4>
+      <p>R$ 350,00</p>
+      <p class="cashback">Cashback: R$ 17,50</p>
+      <button onclick="window.location.href='produto.html'">Ver produto</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+      <h4>Headset Bluetooth</h4>
+      <p>R$ 220,00</p>
+      <p class="cashback">Cashback: R$ 11,00</p>
+      <button onclick="window.location.href='produto.html'">Ver produto</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+      <h4>SSD 1TB</h4>
+      <p>R$ 500,00</p>
+      <p class="cashback">Cashback: R$ 25,00</p>
+      <button onclick="window.location.href='produto.html'">Ver produto</button>
+    </div>
+
+    <div class="product">
+      <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+      <h4>Placa de Vídeo RTX</h4>
+      <p>R$ 4.500,00</p>
+      <p class="cashback">Cashback: R$ 225,00</p>
+      <button onclick="window.location.href='produto.html'">Ver produto</button>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <button onclick="location.href='index.html'">Início</button>
+  <button onclick="location.href='alerta.html'">Alerta</button>
+  <button onclick="location.href='ofertas.html'">Ofertas</button>
+  <button onclick="location.href='carrinho.html'">Carrinho</button>
+  <button onclick="location.href='perfil.html'">Perfil</button>
+</footer>
+</body>
+</html>

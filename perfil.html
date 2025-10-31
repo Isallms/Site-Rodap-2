@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil - SearchTec</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+
+    header {
+      width: 100%;
+      background: #ffe4ec;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 20px;
+      background: #ffd8e5;
+      border-radius: 25px;
+      padding: 10px 20px;
+      box-shadow: 2px 3px 5px #ccc;
+    }
+
+    .search-bar {
+      background: #ffeaf0;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      padding: 6px 15px;
+      width: 220px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: none;
+      font-size: 14px;
+    }
+
+    .profile-container {
+      width: 90%;
+      max-width: 1000px;
+      background: #fff;
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .profile-main {
+      flex: 2;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .tabs {
+      display: flex;
+      background: #f8f8f8;
+      border-radius: 25px;
+      overflow: hidden;
+      width: fit-content;
+      margin-bottom: 25px;
+    }
+
+    .tab {
+      padding: 8px 18px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: 0.3s;
+    }
+
+    .tab.active {
+      background: #ffe4ec;
+      border-radius: 25px;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #ffd8e5;
+      border-radius: 10px;
+      padding: 20px 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 35px;
+      margin-bottom: 10px;
+      opacity: 0.8;
+    }
+
+    .card p {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .profile-side {
+      flex: 1;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .profile-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+
+    .profile-info img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ffd8e5;
+    }
+
+    .profile-info span {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .config {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .config h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .config label {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+
+    .config input,
+    .config select {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid #ffd8e5;
+      outline: none;
+      font-size: 13px;
+    }
+
+    .config small {
+      font-size: 12px;
+      color: #777;
+    }
+
+    .config .checkbox {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      margin: 5px 0;
+    }
+
+    .config button {
+      background: #ffd8e5;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .config button:hover {
+      background: #ffbfd3;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      background: #ffe4ec;
+      padding: 12px;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    }
+
+    footer button {
+      background: #ffeaf0;
+      border: none;
+      border-radius: 25px;
+      padding: 8px 25px;
+      font-weight: 500;
+      font-size: 14px;
+      box-shadow: inset 1px 2px 3px #ddd;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    footer button:hover {
+      background: #ffd8e5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">SearchTec</div>
+  <div class="search-bar"><input type="text" placeholder="Buscar"></div>
+</header>
+
+<div class="profile-container">
+
+  <div class="profile-main">
+    <div class="tabs">
+      <button class="tab active">Meu perfil</button>
+      <a href="minhascompras.html">
+      <button class="tab">Minhas compras</button>
+      </a>
+    </div>
+
+    <div class="grid">
+      <a href="historico.html">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png">
+        <p>+99 Histórico de pesquisa</p>
+      </div>
+</a>
+<a href="minhascompras.html">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png">
+        <p>Minhas compras</p>
+      </div>
+</a>
+<a href="acaminho.html">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png">
+        <p>A caminho</p>
+      </div>
+</a>
+<a href="avaliar.html">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png">
+        <p>Avaliar</p>
+      </div>
+</a>
+<a href="favoritos.html">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png">
+        <p>87 Favoritos</p>
+      </div>
+</a>
+<a href="comprarnovamente.html">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png">
+        <p>Comprar novamente</p>
+      </div>
+</a>
+<a href="cashback.html">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png">
+        <p>Cashback</p>
+      </div>
+</a>
+<a href="cupons.html">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png">
+        <p>Cupons</p>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+  <div class="profile-side">
+    <div class="profile-info">
+      <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png">
+      <span>Nome</span>
+    </div>
+
+    <div class="config">
+      <h3>Configurações</h3>
+
+      <div>
+        <label>Nome de usuário</label>
+        <input type="text" placeholder="Nome">
+      </div>
+
+      <div>
+        <label>Endereço padrão</label>
+        <select>
+          <option>###########</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Cadastro</label>
+        <input type="text" placeholder="Digite">
+      </div>
+
+      <div class="checkbox">
+        <input type="checkbox" checked>
+        <label>Aceito os Termos <small>Li e concordo com os termos</small></label>
+      </div>
+
+      <button>Alterar informação</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <button onclick="location.href='index.html'">Início</button>
+  <button onclick="location.href='alerta.html'">Alerta</button>
+  <button onclick="location.href='ofertas.html'">Ofertas</button>
+  <button onclick="location.href='carrinho.html'">Carrinho</button>
+  <button onclick="location.href='perfil.html'">Perfil</button>
+</footer>
+</body>
+</html>

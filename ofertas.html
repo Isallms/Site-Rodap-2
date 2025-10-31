@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Ofertas - SearchTec</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+   
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+
+    
+    header {
+      width: 100%;
+      background: #ffe4ec;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 20px;
+      background: #ffd8e5;
+      border-radius: 25px;
+      padding: 10px 20px;
+      box-shadow: 2px 3px 5px #ccc;
+    }
+
+    .search-bar {
+      background: #ffeaf0;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      padding: 6px 15px;
+      width: 220px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: none;
+      font-size: 14px;
+    }
+
+    
+    .container {
+      width: 95%;
+      max-width: 1300px;
+      margin: 30px auto;
+    }
+
+    .container h2 {
+      text-align: left;
+      font-size: 22px;
+      color: #444;
+      margin: 20px 0 15px 0;
+      font-weight: 600;
+    }
+
+    .filter-bar {
+      background-color: #ffe6f0;
+      display: block;
+      border-radius: 10px;
+      padding: 10px 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      width: fit-content;
+    }
+
+    .filter-options {
+      display: flex;
+      justify-content: flex-start;
+      gap: 15px;
+      margin-left: 10px;
+    }
+
+    .filter-options div {
+      font-weight: bold;
+      color: #555;
+      cursor: pointer;
+      transition: 0.3s;
+      background-color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .filter-options div:hover {
+      color: #ff4081;
+      background-color: #ffe6f0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 20px;
+      justify-items: center;
+      align-items: start;
+      padding: 20px 0;
+    }
+
+    .product {
+      background-color: #f8dfe9;
+      border-radius: 12px;
+      padding: 10px;
+      width: 160px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+      text-align: center;
+    }
+
+    .product:hover {
+      transform: scale(1.03);
+    }
+
+    .product img {
+      width: 100%;
+      height: 120px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .product p {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 5px;
+      font-weight: bold;
+      color: #333;
+      margin: 8px 0;
+      font-size: 13px;
+    }
+
+    .product h4 {
+      font-size: 14px;
+      font-weight: normal;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .product button {
+      background: #ffd8e5;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 15px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .product button:hover {
+      background: #ffbfd3;
+    }
+
+    
+    @media (max-width: 1600px) {
+      .product-grid { grid-template-columns: repeat(6, 1fr); }
+    }
+    @media (max-width: 1200px) {
+      .product-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .product-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 400px) {
+      .product-grid { grid-template-columns: 1fr; }
+    }
+
+    
+     footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      background: #ffe4ec;
+      padding: 12px;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    }
+
+    footer button {
+      background: #ffeaf0;
+      border: none;
+      border-radius: 25px;
+      padding: 8px 25px;
+      font-weight: 500;
+      font-size: 14px;
+      box-shadow: inset 1px 2px 3px #ddd;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    footer button:hover {
+      background: #ffd8e5;
+    }
+
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">SearchTec</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar ofertas...">
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>Ofertas em destaque</h2>
+
+    <div class="filter-bar">
+      <div class="filter-options">
+        <div onclick="filtrar('preco')">Preço</div>
+        <div onclick="filtrar('categoria')">Categoria</div>
+        <div onclick="filtrar('oferta')">Oferta</div>
+      </div>
+    </div>
+
+    <div class="product-grid">
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Notebook X</h4>
+        <p>R$ 2.400,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Monitor UltraWide</h4>
+        <p>R$ 1.200,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Mouse Gamer</h4>
+        <p>R$ 180,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Teclado Mecânico</h4>
+        <p>R$ 350,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Headset Bluetooth</h4>
+        <p>R$ 220,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Smartphone Y</h4>
+        <p>R$ 3.000,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Caixa de Som</h4>
+        <p>R$ 150,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Caixa de Som</h4>
+        <p>R$ 150,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Caixa de Som</h4>
+        <p>R$ 150,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Impressora Wi-Fi</h4>
+        <p>R$ 600,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+       <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Impressora Wi-Fi</h4>
+        <p>R$ 600,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+       <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Impressora Wi-Fi</h4>
+        <p>R$ 600,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+       <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Impressora Wi-Fi</h4>
+        <p>R$ 600,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+       <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Impressora Wi-Fi</h4>
+        <p>R$ 600,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>SSD 1TB</h4>
+        <p>R$ 500,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Placa de Vídeo RTX</h4>
+        <p>R$ 4.500,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Gabinete Gamer</h4>
+        <p>R$ 300,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Webcam HD</h4>
+        <p>R$ 200,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Microfone USB</h4>
+        <p>R$ 280,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>HD Externo 2TB</h4>
+        <p>R$ 400,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Carregador Portátil</h4>
+        <p>R$ 120,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Carregador Portátil</h4>
+        <p>R$ 120,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Carregador Portátil</h4>
+        <p>R$ 120,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+      <div class="product">
+        <img src="https://cdn-icons-png.flaticon.com/512/685/685655.png">
+        <h4>Carregador Portátil</h4>
+        <p>R$ 120,00</p>
+        <button onclick="window.location.href='produto.html'">Ver produto</button>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <button onclick="location.href='index.html'">Início</button>
+    <button onclick="location.href='alerta.html'">Alerta</button>
+    <button onclick="location.href='ofertas.html'">Ofertas</button>
+    <button onclick="location.href='carrinho.html'">Carrinho</button>
+    <button onclick="location.href='perfil.html'">Perfil</button>
+  </footer>
+</body>
+</html>

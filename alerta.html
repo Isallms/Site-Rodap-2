@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Alertas - SearchTec</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    /* === CABEÇALHO === */
+    header {
+      width: 100%;
+      background: #ffe4ec;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 20px;
+      background: #ffd8e5;
+      border-radius: 25px;
+      padding: 10px 20px;
+      box-shadow: 2px 3px 5px #ccc;
+    }
+
+    /* === BARRA DE PESQUISA === */
+    .search-bar {
+      width: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px 15px;
+      border-radius: 25px;
+      border: 1px solid #e6bcd2;
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .search-bar input:focus {
+      border-color: #ff99cc;
+      box-shadow: 0 0 8px rgba(255,153,204,0.4);
+    }
+
+    /* === CONTAINER PRINCIPAL === */
+    .container {
+      flex: 1;
+      display: flex;
+      height: calc(100vh - 110px);
+      overflow: hidden;
+    }
+
+    /* === SIDEBAR === */
+    .sidebar {
+      width: 240px;
+      background-color: #ffe6f0;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      border-right: 1px solid #f3d6e6;
+    }
+
+    .sidebar h4 {
+      font-size: 14px;
+      color: #000000;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar li {
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #383838;
+      transition: background 0.2s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sidebar li:hover {
+      background-color: #ffd6e7;
+    }
+
+    .sidebar .active {
+      background-color: #ffb6d9;
+      font-weight: 600;
+    }
+
+    .sidebar .count {
+      background-color: #fff;
+      color: #cc6699;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* === CONTEÚDO PRINCIPAL === */
+    .content {
+      flex: 1;
+      background-color: #fff;
+      padding: 40px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* === BLOCO DE ALERTA === */
+    .section {
+      background-color: #ffe6f0;
+      border-radius: 15px;
+      padding: 25px;
+      width: 80%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    .section h3 {
+      color: #000000;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .section p {
+      font-size: 15px;
+      color: #555;
+    }
+
+    /* === LISTA DE ALERTAS === */
+    .alert-list {
+      background-color: #ffe6f0;
+      border-radius: 15px;
+      padding: 20px;
+      width: 80%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .alert-item {
+      background-color: #fff6f9;
+      border-radius: 12px;
+      padding: 14px 20px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .alert-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.12);
+    }
+
+    .alert-item .info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .alert-item .info h5 {
+      font-size: 16px;
+      color: #000000;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .alert-item .info p {
+      font-size: 13px;
+      color: #555;
+      margin: 3px 0 0;
+    }
+
+    .alert-item .time {
+      font-size: 12px;
+      color: #999;
+      text-align: right;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      background: #ffe4ec;
+      padding: 12px;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    }
+
+    footer button {
+      background: #ffeaf0;
+      border: none;
+      border-radius: 25px;
+      padding: 8px 25px;
+      font-weight: 500;
+      font-size: 14px;
+      box-shadow: inset 1px 2px 3px #ddd;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    footer button:hover {
+      background: #ffd8e5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">SearchTec</div>
+  <div class="search-bar"><input type="text" placeholder="Buscar alerta..."></div>
+</header>
+
+<div class="container">
+  <aside class="sidebar">
+    <h4>Recebidos</h4>
+    <ul>
+      <li class="active">Novidade <span class="count">24</span></li>
+      <li>Caixa de Entrada</li>
+      <li>Favoritos</li>
+      <li>Lixeira</li>
+    </ul>
+
+    <h4>Alertas</h4>
+    <ul>
+      <li>Alerta de segurança</li>
+      <li>Alerta de login</li>
+      <li>Alerta de confirmação</li>
+    </ul>
+
+    <h4>Cupons</h4>
+    <ul>
+      <li>Seu cupom está expi...</li>
+      <li>Seu cupom está expi...</li>
+      <li>Seu cupom está expi...</li>
+    </ul>
+  </aside>
+
+  <div class="content">
+    <div class="section">
+      <h3>Alerta de oferta</h3>
+      <p>Você será notificado quando o notebook "Dell X" estiver abaixo do preço sugerido.</p>
+    </div>
+
+    <div class="alert-list">
+      <div class="alert-item">
+        <div class="info">
+          <h5>Queda de preço - Notebook Dell Inspiron</h5>
+          <p>Preço atual: R$ 2.899 (antes R$ 3.299)</p>
+        </div>
+        <div class="time">9:41 AM</div>
+      </div>
+
+      <div class="alert-item">
+        <div class="info">
+          <h5>Produto em estoque - iPhone 14 128GB</h5>
+          <p>Disponível novamente na loja TechSmart.</p>
+        </div>
+        <div class="time">9:41 AM</div>
+      </div>
+
+      <div class="alert-item">
+        <div class="info">
+          <h5>Promoção relâmpago - Monitor LG Ultrawide</h5>
+          <p>Desconto de 25% por tempo limitado.</p>
+        </div>
+        <div class="time">9:41 AM</div>
+      </div>
+
+      <div class="alert-item">
+        <div class="info">
+          <h5>Alerta de frete grátis</h5>
+          <p>Frete gratuito ativado para compras acima de R$ 200.</p>
+        </div>
+        <div class="time">9:41 AM</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <button onclick="location.href='index.html'">Início</button>
+  <button onclick="location.href='alerta.html'">Alerta</button>
+  <button onclick="location.href='ofertas.html'">Ofertas</button>
+  <button onclick="location.href='carrinho.html'">Carrinho</button>
+  <button onclick="location.href='perfil.html'">Perfil</button>
+</footer>
+</body>
+</html>
